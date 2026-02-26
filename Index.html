@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenPay Cash App Clone</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/app.js" defer></script>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+<!-- Splash -->
+<div id="splashScreen" class="screen active"><div class="logo">GreenPay</div></div>
+
+<!-- Login -->
+<div id="loginScreen" class="screen">
+  <div class="logo">Login</div>
+  <input id="username" placeholder="Username">
+  <input type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+</div>
+
+<!-- Home -->
+<div id="homeScreen" class="screen">
+  <div class="top-panel">
+    <div class="logo">🏠 Home</div>
+    <div class="balance" id="balance" onclick="addMoney()">$500.00</div>
+  </div>
+  <div class="button-group">
+    <button onclick="goPayFlow()">💸 Pay</button>
+    <button onclick="requestMoney()">💰 Request</button>
+  </div>
+  <div class="recent-row" id="recentContactsRow"></div>
+  <div class="recent-row" id="recentPaymentsRow"></div>
+</div>
+
+<!-- Add Money -->
+<div id="addMoneyScreen" class="screen">
+  <div class="logo">Add Money</div>
+  <input id="addAmountInput" type="number" placeholder="0.00">
+  <button onclick="confirmAddMoney()">Add</button>
+  <button onclick="showScreen('homeScreen')">Cancel</button>
+</div>
+
+<!-- Pay Confirmation -->
+<div id="payScreen" class="screen">
+  <div class="logo">Confirm Payment</div>
+  <div id="confirmRecipient">Recipient: —</div>
+  <div class="balance" id="confirmAmount">$0.00</div>
+  <h3>Select Payment Source</h3>
+  <div class="card-list" id="cardList"></div>
+  <button onclick="finalPay()">Pay Now</button>
+  <button onclick="showScreen('homeScreen')">Cancel</button>
+</div>
+
+<!-- Activity -->
+<div id="activityScreen" class="screen">
+  <div class="top-panel"><div class="logo">🕒 Activity</div></div>
+  <div id="history"></div>
+</div>
+
+<!-- Nav -->
+<div class="nav">
+  <div onclick="showScreen('homeScreen')">🏠</div>
+  <div onclick="showScreen('activityScreen')">🕒</div>
+</div>
+</body>
+</html>
